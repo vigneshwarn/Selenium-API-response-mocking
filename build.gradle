@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group 'org.voyager'
@@ -7,6 +8,18 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.vigneshwaran'
+            artifactId = 'voyager'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
 }
 
 dependencies {
