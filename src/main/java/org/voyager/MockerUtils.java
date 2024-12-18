@@ -2,9 +2,9 @@ package org.voyager;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v131.fetch.Fetch;
-import org.openqa.selenium.devtools.v131.fetch.model.HeaderEntry;
-import org.openqa.selenium.devtools.v131.network.Network;
+import org.openqa.selenium.devtools.v126.fetch.Fetch;
+import org.openqa.selenium.devtools.v126.fetch.model.HeaderEntry;
+import org.openqa.selenium.devtools.v126.network.Network;
 
 import org.voyager.exception.MockerException;
 
