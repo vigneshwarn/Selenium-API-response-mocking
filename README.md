@@ -68,5 +68,23 @@ out/artifact/Mocker-1.0-SNAPSHOT.jar or Use the Release Section
     mockedResponseBody = {"xyz": "123"}
     MockerUtils mockerUtils = new MockerUtils();
     mockerUtils.mockService(chromeDriver, url ,mockedResponseBody);
-    
-``
+
+<B>NetworkLogUtils:</B><br/>
+At before method of a test @BeforeMethod, call this and save this object
+
+    NetworkLogUtils networkLogUtils = new NetworkLogUtils(driver);
+
+This NetworkLogUtils can be initialised using the constructor like this also as per need:
+
+    NetworkLogUtils networkLogUtils = new NetworkLogUtils(driver, 
+        List.of(ResourceType.XHR, 
+                ResourceType.FETCH, 
+                ResourceType.OTHER));
+
+If this `ResourceType` is not mentioned in parameter, by default XHR alone will be added.
+
+Save this `networkLogUtils` object. This same object needs to be used in the next call.<br/>
+At the end of test, @AfterMethod, call this method:
+
+    LinkedHashMap<String, NetworkLog> networkLogs = networkLogUtils.getNetworkLogMap();
+    networkLogUtils.stopNetworkLog();
